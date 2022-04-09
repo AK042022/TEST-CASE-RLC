@@ -6,3 +6,23 @@ ensure that {
    when { UE transmits the first PDU } 
      then { UE sets the sequence Number field equal to 0 }
             }
+
+with { UE in E-UTRA RRC_CONNECTED state }
+ensure that {
+   when { UE transmits subsequent PDUs } 
+        then { SN incremented by 1 for each PDU transmitted }
+              }
+              
+              
+with { UE in E-UTRA RRC_CONNECTED state and an UM RLC DRB is configured using 5 bit SN }
+ensure that {
+    when { UE transmits more than 32 PDUs }
+     then { UE wraps the Sequence Number after transmitting the 32 PDU }
+             }
+ 
+ 
+with { UE in E-UTRA RRC_CONNECTED state and an UM RLC DRB is configured using 5 bit SN }
+ensure that {
+   when { more than 32 PDUs are sent to UE }
+     then { UE accepts PDUs with SNs that wrap around every 32 PDU }
+             }
