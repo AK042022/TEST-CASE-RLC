@@ -1,0 +1,8 @@
+      UM RLC / 5-bit SN / Correct use of sequence numbering.
+--------------------------------------------------------------------------
+
+with { UE in E-UTRA RRC_CONNECTED state }
+ensure that {
+   when { UE transmits the first PDU } 
+     then { UE sets the sequence Number field equal to 0 }
+            }
