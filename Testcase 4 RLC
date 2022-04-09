@@ -1,0 +1,8 @@
+      UM RLC / Reassembly / 10-bit SN / LI value > PDU size.
+--------------------------------------------------------------------------
+
+with { UE in E-UTRA RRC_CONNECTED state }
+ensure that {
+   when { UE receives an RLC PDU with Length Indicator value larger than RLC PDU size } 
+      then { UE discards the RLC PDU }
+              }
