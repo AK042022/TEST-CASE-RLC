@@ -1,3 +1,5 @@
+        UM RLC / Segmentation and reassembly / 5-bit SN / Framing info field
+-----------------------------------------------------------------------------------
 with { UE in E-UTRA RRC_CONNECTED state }
 ensure that { 
     when { UE receives a 5 bit SN configured UMD PDU containing a FI field set to 00 } 
